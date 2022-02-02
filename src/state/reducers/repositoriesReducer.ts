@@ -7,13 +7,19 @@ interface RepositoriesState {
   data: string[];
 }
 
+const initialState = {
+  loading: false,
+  error: null,
+  data: [],
+};
+
 // interface Action {
 //   type: string;
 //   payload?: any;
 // }
 
 const reducer = (
-  state: RepositoriesState,
+  state: RepositoriesState = initialState,
   action: Action
 ): RepositoriesState => {
   if (action.type === ActionType.SEARCH_REPOSITORIES) {

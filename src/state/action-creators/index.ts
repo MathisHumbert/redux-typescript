@@ -12,11 +12,13 @@ export const searchRepositories = (term: string) => {
     try {
       const { data } = await axios.get('https://api.npms.io/v2/search', {
         params: {
-          text: term,
+          q: term,
         },
       });
 
-      const names = data.objects.map((result: any) => {
+      console.log(data);
+
+      const names = data.results.map((result: any) => {
         return result.package.name;
       });
 
